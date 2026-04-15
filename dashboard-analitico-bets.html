@@ -1,0 +1,1052 @@
+S<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Analítico | Impacto Socioeconômico das Bets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: rgba(255,255,255,0.92);
+      --surface-2: #ffffff;
+      --surface-3: #edf3f9;
+      --text: #132238;
+      --text-muted: #5b6c80;
+      --primary: #005ea2;
+      --primary-2: #0b7bdc;
+      --accent: #0f9f8f;
+      --success: #027a48;
+      --warning: #b54708;
+      --danger: #b42318;
+      --border: rgba(19,34,56,0.12);
+      --shadow-sm: 0 8px 22px rgba(15, 40, 70, 0.08);
+      --shadow-lg: 0 24px 60px rgba(15, 40, 70, 0.14);
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --focus: #ffbf47;
+      --font-size-base: 100%;
+      --max-width: 1280px;
+    }
+
+    html {
+      font-size: var(--font-size-base);
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(11,123,220,0.08), transparent 24%),
+        radial-gradient(circle at top right, rgba(15,159,143,0.08), transparent 22%),
+        linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a, button, input, select {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -64px;
+      left: 16px;
+      z-index: 9999;
+      background: #000;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .accessbar {
+      background: #0d2237;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .accessbar-inner {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    .accessbar strong {
+      font-size: 0.95rem;
+    }
+
+    .access-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .access-links a,
+    .access-links button {
+      min-height: 40px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .access-links a:hover,
+    .access-links button:hover,
+    .access-links a:focus,
+    .access-links button:focus {
+      background: rgba(255,255,255,0.12);
+    }
+
+    header {
+      padding: 28px 0 20px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #112f4b 0%, #115287 44%, #0b7bdc 100%);
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow-lg);
+      color: #f4f9ff;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 24px;
+      padding: 34px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      max-width: 12ch;
+    }
+
+    .hero p {
+      margin: 0 0 14px;
+      max-width: 68ch;
+      color: #e5f1fb;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn,
+    .btn-outline {
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .btn {
+      background: #fff;
+      color: #133450;
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-card,
+    .legend-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card h2,
+    .legend-card h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    .hero-card ul,
+    .legend-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .section-nav {
+      margin-top: 18px;
+    }
+
+    .section-nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .section-nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    main {
+      padding: 26px 0 40px;
+    }
+
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel,
+    .content-card,
+    .metric,
+    .chart-card,
+    .table-card,
+    .heat-card,
+    .insight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(12px);
+    }
+
+    .panel {
+      position: sticky;
+      top: 18px;
+      padding: 22px;
+    }
+
+    .panel h2,
+    .content-card h2,
+    .table-card h2,
+    .heat-card h2,
+    .insight-card h2 {
+      margin-top: 0;
+      font-size: 1.45rem;
+      color: #153450;
+    }
+
+    .panel p,
+    .content-card p,
+    .table-card p,
+    .heat-card p,
+    .insight-card p {
+      color: var(--text-muted);
+      max-width: 80ch;
+    }
+
+    fieldset {
+      margin: 0 0 16px;
+      border: 1px solid rgba(19,34,56,0.14);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.74);
+    }
+
+    legend {
+      padding: 0 8px;
+      font-weight: 800;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      font-weight: 700;
+    }
+
+    select,
+    input {
+      min-height: 48px;
+      border-radius: 14px;
+      border: 1px solid rgba(19,34,56,0.22);
+      background: #fff;
+      color: var(--text);
+      padding: 10px 12px;
+    }
+
+    .panel-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 48px;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .primary-btn {
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(19,34,56,0.18);
+      background: #fff;
+      color: var(--text);
+    }
+
+    .status {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(2,122,72,0.10);
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .content-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .content-card,
+    .table-card,
+    .heat-card,
+    .insight-card {
+      padding: 24px;
+    }
+
+    .metrics-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .metric {
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+    }
+
+    .metric h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #163551;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .visuals-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .chart-card,
+    .heat-card,
+    .insight-card {
+      padding: 22px;
+    }
+
+    .chart-card h3,
+    .heat-card h3,
+    .insight-card h3 {
+      margin-top: 0;
+      color: #153450;
+    }
+
+    .chart-box,
+    .heat-box {
+      height: 280px;
+      border-radius: 18px;
+      border: 1px solid rgba(19,34,56,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(239,245,251,0.95));
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .line-chart,
+    .bar-chart,
+    .heatmap-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .duo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .insight-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .insight-list li {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(11,123,220,0.06);
+      border: 1px solid rgba(11,123,220,0.10);
+    }
+
+    .table-card table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+
+    .table-card caption {
+      text-align: left;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #153450;
+    }
+
+    .table-card th,
+    .table-card td {
+      text-align: left;
+      padding: 14px 12px;
+      border-bottom: 1px solid rgba(19,34,56,0.10);
+      vertical-align: top;
+    }
+
+    .table-card th {
+      background: rgba(11,123,220,0.06);
+    }
+
+    footer {
+      padding: 12px 0 34px;
+      color: var(--text-muted);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .high-contrast {
+      --bg: #000;
+      --surface: #111;
+      --surface-2: #111;
+      --surface-3: #1a1a1a;
+      --text: #fff;
+      --text-muted: #f2f2f2;
+      --border: rgba(255,255,255,0.28);
+      background: #000;
+      color: #fff;
+    }
+
+    .high-contrast .hero,
+    .high-contrast .panel,
+    .high-contrast .content-card,
+    .high-contrast .metric,
+    .high-contrast .chart-card,
+    .high-contrast .table-card,
+    .high-contrast .heat-card,
+    .high-contrast .insight-card,
+    .high-contrast select,
+    .high-contrast input,
+    .high-contrast .section-nav a,
+    .high-contrast .secondary-btn,
+    .high-contrast .btn {
+      background: #111 !important;
+      color: #fff !important;
+      border-color: rgba(255,255,255,0.28) !important;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .dashboard-layout,
+      .visuals-grid,
+      .duo-grid,
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 20px, var(--max-width));
+      }
+
+      .hero-grid,
+      .panel,
+      .content-card,
+      .table-card,
+      .heat-card,
+      .insight-card,
+      .chart-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal" data-voice="Pular para o conteúdo principal.">Pular para o conteúdo principal</a>
+
+  <div class="accessbar" id="acessibilidade">
+    <div class="container accessbar-inner">
+      <strong data-voice="Barra de acessibilidade do dashboard.">Acessibilidade</strong>
+      <ul class="access-links" role="list">
+        <li><a href="#conteudo-principal" data-voice="Ir para o conteúdo principal.">Ir para conteúdo</a></li>
+        <li><a href="#filtros" data-voice="Ir para os filtros do dashboard.">Ir para filtros</a></li>
+        <li><button type="button" id="aumentar-texto" data-voice="Aumentar tamanho do texto.">A+</button></li>
+        <li><button type="button" id="diminuir-texto" data-voice="Diminuir tamanho do texto.">A-</button></li>
+        <li><button type="button" id="alternar-contraste" data-voice="Alternar alto contraste.">Alto contraste</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="container">
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-grid">
+        <div>
+          <span class="tag" data-voice="Projeto Integrador. Dashboard analítico sobre o impacto socioeconômico das bets.">Projeto Integrador • IHC • eMAG</span>
+          <h1 id="titulo-principal" data-voice="Dashboard Analítico. O impacto socioeconômico das bets no Brasil.">Dashboard Analítico: O Impacto Socioeconômico das Bets</h1>
+          <p data-voice="Plataforma web de análise exploratória que cruza volume de transações via Pix destinadas a casas de apostas, indicadores de inadimplência e recortes socioeconômicos no Brasil.">Plataforma web de análise exploratória voltada ao cruzamento entre transações via Pix destinadas a casas de apostas, indicadores de inadimplência familiar e leitura socioeconômica do território brasileiro.</p>
+          <p data-voice="O painel foi estruturado para apoiar visualização de dados, interpretação de risco e discussão acadêmica sobre comprometimento de renda, ludopatia digital e pressão financeira em famílias vulneráveis.">O painel organiza indicadores, relações temporais e comparações regionais para apoiar interpretação de risco, discussão acadêmica e leitura visual do comprometimento de renda em famílias vulneráveis.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#indicadores" data-voice="Explorar indicadores principais do dashboard.">Explorar indicadores</a>
+            <a class="btn-outline" href="#metodologia" data-voice="Ir para a seção de metodologia do projeto.">Ver metodologia</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <aside class="hero-card" aria-labelledby="resumo-geral">
+            <h2 id="resumo-geral" data-voice="Resumo geral do painel.">Resumo do painel</h2>
+            <ul>
+              <li data-voice="Tema central: bets, Pix e inadimplência familiar.">Tema central: bets, Pix e inadimplência familiar.</li>
+              <li data-voice="Recorte temporal: de 2018 até 2026, com atenção ao crescimento recente.">Recorte temporal: 2018 a 2026.</li>
+              <li data-voice="Recorte geográfico: Brasil e comparação entre regiões.">Recorte geográfico: Brasil e regiões.</li>
+              <li data-voice="Público de interesse: pesquisadores, banca, gestores públicos e entidades de crédito.">Público: pesquisadores, banca, gestores e entidades de crédito.</li>
+            </ul>
+          </aside>
+
+          <aside class="legend-card" aria-labelledby="eixos-analise">
+            <h2 id="eixos-analise" data-voice="Eixos de análise do dashboard.">Eixos de análise</h2>
+            <ul>
+              <li data-voice="Fluxo financeiro para plataformas de apostas.">Fluxo financeiro para apostas.</li>
+              <li data-voice="Comprometimento da renda básica familiar.">Comprometimento da renda básica.</li>
+              <li data-voice="Indicadores correlacionais e leitura exploratória.">Indicadores correlacionais.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <nav class="section-nav" aria-label="Seções principais">
+      <ul>
+        <li><a href="#indicadores" data-voice="Ir para a seção de indicadores principais.">Indicadores</a></li>
+        <li><a href="#graficos" data-voice="Ir para a seção de gráficos correlacionais.">Gráficos</a></li>
+        <li><a href="#mapa-calor" data-voice="Ir para a seção de mapa de calor analítico.">Mapa de calor</a></li>
+        <li><a href="#analise" data-voice="Ir para a seção de análise interpretativa.">Análise</a></li>
+        <li><a href="#metodologia" data-voice="Ir para a seção de metodologia.">Metodologia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo-principal" class="container">
+    <div class="dashboard-layout">
+      <aside class="panel" id="filtros" aria-labelledby="titulo-filtros">
+        <h2 id="titulo-filtros" data-voice="Filtros de exploração do dashboard.">Filtros de exploração</h2>
+        <p data-voice="Use os filtros para alterar o recorte do painel por período, região, objetivo de desenvolvimento sustentável e variável estatística.">A navegação do painel foi organizada para permitir leitura por período, região, ODS e variável estatística, mantendo o foco na exploração acessível dos dados.</p>
+
+        <form>
+          <fieldset>
+            <legend data-voice="Filtro temporal.">Recorte temporal</legend>
+            <div class="field">
+              <label for="periodo" data-voice="Campo período de análise.">Período de análise</label>
+              <select id="periodo" name="periodo" data-voice="Selecionar período de análise.">
+                <option>2018 a 2020</option>
+                <option>2021 a 2023</option>
+                <option selected>2024 a 2026</option>
+                <option>2018 a 2026</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend data-voice="Filtro geográfico.">Recorte geográfico</legend>
+            <div class="field">
+              <label for="regiao" data-voice="Campo região do Brasil.">Região</label>
+              <select id="regiao" name="regiao" data-voice="Selecionar região do Brasil.">
+                <option selected>Brasil</option>
+                <option>Norte</option>
+                <option>Nordeste</option>
+                <option>Centro-Oeste</option>
+                <option>Sudeste</option>
+                <option>Sul</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend data-voice="Filtro de objetivo de desenvolvimento sustentável.">ODS relacionado</legend>
+            <div class="field">
+              <label for="ods" data-voice="Campo objetivo de desenvolvimento sustentável.">ODS</label>
+              <select id="ods" name="ods" data-voice="Selecionar objetivo de desenvolvimento sustentável.">
+                <option>ODS 1 - Erradicação da pobreza</option>
+                <option selected>ODS 3 - Saúde e bem-estar</option>
+                <option>ODS 8 - Trabalho decente e crescimento econômico</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend data-voice="Filtro estatístico.">Variável estatística</legend>
+            <div class="field">
+              <label for="variavel" data-voice="Campo variável estatística.">Variável</label>
+              <select id="variavel" name="variavel" data-voice="Selecionar variável estatística.">
+                <option selected>Inadimplência familiar</option>
+                <option>Comprometimento de renda</option>
+                <option>Fluxo Pix para bets</option>
+                <option>Correlação regional</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <div class="panel-actions">
+            <button class="primary-btn" type="button" data-voice="Aplicar filtros do dashboard.">Aplicar filtros</button>
+            <button class="secondary-btn" type="button" data-voice="Redefinir filtros do dashboard.">Redefinir filtros</button>
+          </div>
+        </form>
+
+        <p class="status" id="status-leitura" aria-live="polite" data-voice="Leitura por mouse disponível. Passe o cursor sobre os elementos para ouvir.">Leitura por mouse disponível</p>
+      </aside>
+
+      <div class="content-grid">
+        <section class="content-card" id="indicadores" aria-labelledby="titulo-indicadores">
+          <h2 id="titulo-indicadores" data-voice="Indicadores principais do painel.">Indicadores principais</h2>
+          <p data-voice="Os indicadores resumem os principais eixos da investigação: crescimento das transações, comprometimento da renda, pressão social e leitura correlacional do problema.">Os indicadores abaixo sintetizam o núcleo do projeto: expansão do fluxo financeiro para apostas, pressão sobre despesas básicas, risco de inadimplência e necessidade de evidência estatística centralizada.</p>
+
+          <div class="metrics-grid">
+            <article class="metric" data-voice="Indicador um. Aumento contínuo das transações destinadas a plataformas de apostas.">
+              <h3>Fluxo para apostas</h3>
+              <strong>Alta contínua</strong>
+              <span>Crescimento do direcionamento de recursos para plataformas de bets.</span>
+            </article>
+
+            <article class="metric" data-voice="Indicador dois. Pressão sobre o orçamento doméstico e sobre a renda básica familiar.">
+              <h3>Renda comprometida</h3>
+              <strong>Pressão elevada</strong>
+              <span>Desvio de orçamento que deveria atender despesas essenciais.</span>
+            </article>
+
+            <article class="metric" data-voice="Indicador três. Maior vulnerabilidade em famílias de baixa e média renda.">
+              <h3>Vulnerabilidade social</h3>
+              <strong>Maior exposição</strong>
+              <span>Impacto mais sensível em grupos com menor liquidez financeira.</span>
+            </article>
+
+            <article class="metric" data-voice="Indicador quatro. Correlação entre bets, Pix e inadimplência familiar.">
+              <h3>Risco correlacional</h3>
+              <strong>Leitura integrada</strong>
+              <span>Cruzamento entre transações, endividamento e comportamento financeiro.</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-card" id="graficos" aria-labelledby="titulo-graficos">
+          <h2 id="titulo-graficos" data-voice="Gráficos correlacionais do dashboard.">Gráficos correlacionais</h2>
+          <p data-voice="Os gráficos apresentam leitura visual do comportamento temporal e da distribuição regional do impacto socioeconômico das bets.">As visualizações abaixo representam a leitura temporal e a comparação territorial previstas para o dashboard, com foco em tendência, contraste e interpretação rápida.</p>
+
+          <div class="visuals-grid">
+            <article class="chart-card" data-voice="Gráfico de linha mostrando crescimento progressivo do risco financeiro ao longo do tempo.">
+              <h3>Evolução temporal do risco</h3>
+              <div class="chart-box" role="img" aria-label="Gráfico de linha com aumento progressivo do risco financeiro associado às apostas online entre 2018 e 2026.">
+                <svg class="line-chart" viewBox="0 0 560 280" aria-hidden="true">
+                  <line x1="52" y1="230" x2="520" y2="230" stroke="#90a4b8" stroke-width="2"/>
+                  <line x1="52" y1="24" x2="52" y2="230" stroke="#90a4b8" stroke-width="2"/>
+                  <g fill="#6f8196" font-size="12">
+                    <text x="44" y="248">2018</text>
+                    <text x="116" y="248">2019</text>
+                    <text x="188" y="248">2020</text>
+                    <text x="260" y="248">2021</text>
+                    <text x="332" y="248">2022</text>
+                    <text x="404" y="248">2024</text>
+                    <text x="476" y="248">2026</text>
+                  </g>
+                  <polyline fill="rgba(11,123,220,0.12)" stroke="none" points="52,188 124,180 196,166 268,140 340,108 412,78 484,46 484,230 52,230"/>
+                  <polyline fill="none" stroke="#0b7bdc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="52,188 124,180 196,166 268,140 340,108 412,78 484,46"/>
+                  <circle cx="52" cy="188" r="6" fill="#0b7bdc"/>
+                  <circle cx="124" cy="180" r="6" fill="#0b7bdc"/>
+                  <circle cx="196" cy="166" r="6" fill="#0b7bdc"/>
+                  <circle cx="268" cy="140" r="6" fill="#0b7bdc"/>
+                  <circle cx="340" cy="108" r="6" fill="#0f9f8f"/>
+                  <circle cx="412" cy="78" r="6" fill="#0f9f8f"/>
+                  <circle cx="484" cy="46" r="6" fill="#b42318"/>
+                </svg>
+              </div>
+            </article>
+
+            <article class="chart-card" data-voice="Gráfico de barras comparando intensidade do impacto socioeconômico por região do Brasil.">
+              <h3>Comparação regional do impacto</h3>
+              <div class="chart-box" role="img" aria-label="Gráfico de barras com comparação entre regiões do Brasil em relação ao impacto socioeconômico das apostas.">
+                <svg class="bar-chart" viewBox="0 0 520 280" aria-hidden="true">
+                  <line x1="52" y1="230" x2="480" y2="230" stroke="#90a4b8" stroke-width="2"/>
+                  <g fill="#6f8196" font-size="12">
+                    <text x="74" y="250">Norte</text>
+                    <text x="150" y="250">Nordeste</text>
+                    <text x="236" y="250">Centro-Oeste</text>
+                    <text x="340" y="250">Sudeste</text>
+                    <text x="428" y="250">Sul</text>
+                  </g>
+                  <rect x="78" y="136" width="42" height="94" rx="10" fill="#0b7bdc"/>
+                  <rect x="166" y="112" width="42" height="118" rx="10" fill="#1789e6"/>
+                  <rect x="266" y="96" width="42" height="134" rx="10" fill="#0f9f8f"/>
+                  <rect x="360" y="72" width="42" height="158" rx="10" fill="#0b7bdc"/>
+                  <rect x="444" y="124" width="42" height="106" rx="10" fill="#59acee"/>
+                </svg>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="duo-grid" id="mapa-calor">
+          <article class="heat-card" aria-labelledby="titulo-heatmap" data-voice="Mapa de calor analítico mostrando intensidade comparativa entre período e região.">
+            <h2 id="titulo-heatmap">Mapa de calor analítico</h2>
+            <p data-voice="A matriz visual representa intensidade de risco socioeconômico combinando regiões e períodos de análise.">A matriz abaixo ilustra a lógica de leitura por intensidade entre regiões e períodos, reforçando a proposta de exploração visual prevista para o sistema.</p>
+            <div class="heat-box" role="img" aria-label="Mapa de calor com cruzamento entre regiões brasileiras e períodos de análise, indicando variações de intensidade de risco.">
+              <svg class="heatmap-svg" viewBox="0 0 520 280" aria-hidden="true">
+                <g fill="#6f8196" font-size="12" font-family="Inter, Arial, sans-serif">
+                  <text x="110" y="32">2018-2020</text>
+                  <text x="220" y="32">2021-2023</text>
+                  <text x="336" y="32">2024-2026</text>
+                  <text x="18" y="78">Norte</text>
+                  <text x="18" y="122">Nordeste</text>
+                  <text x="18" y="166">Centro-Oeste</text>
+                  <text x="18" y="210">Sudeste</text>
+                  <text x="18" y="254">Sul</text>
+                </g>
+                <rect x="100" y="48" width="90" height="30" rx="8" fill="#d7ecfb"/>
+                <rect x="210" y="48" width="90" height="30" rx="8" fill="#a7d5f7"/>
+                <rect x="320" y="48" width="90" height="30" rx="8" fill="#5aaeea"/>
+                <rect x="100" y="92" width="90" height="30" rx="8" fill="#c0e2fa"/>
+                <rect x="210" y="92" width="90" height="30" rx="8" fill="#7fc0ef"/>
+                <rect x="320" y="92" width="90" height="30" rx="8" fill="#1e88d9"/>
+                <rect x="100" y="136" width="90" height="30" rx="8" fill="#b6e7dd"/>
+                <rect x="210" y="136" width="90" height="30" rx="8" fill="#6bc7b9"/>
+                <rect x="320" y="136" width="90" height="30" rx="8" fill="#0f9f8f"/>
+                <rect x="100" y="180" width="90" height="30" rx="8" fill="#9bd0f4"/>
+                <rect x="210" y="180" width="90" height="30" rx="8" fill="#3294de"/>
+                <rect x="320" y="180" width="90" height="30" rx="8" fill="#b42318"/>
+                <rect x="100" y="224" width="90" height="30" rx="8" fill="#d7ecfb"/>
+                <rect x="210" y="224" width="90" height="30" rx="8" fill="#8cc7f1"/>
+                <rect x="320" y="224" width="90" height="30" rx="8" fill="#5aaeea"/>
+              </svg>
+            </div>
+          </article>
+
+          <article class="insight-card" aria-labelledby="titulo-insights">
+            <h2 id="titulo-insights" data-voice="Insights principais do dashboard.">Insights principais</h2>
+            <p data-voice="Os insights resumem leituras visuais coerentes com o problema investigado pelo projeto.">Os insights abaixo organizam a interpretação qualitativa do problema e ajudam a leitura rápida da tela principal.</p>
+            <ul class="insight-list">
+              <li data-voice="O avanço das bets aparece associado a maior pressão sobre a renda disponível das famílias."><strong>Pressão orçamentária:</strong> o avanço das bets tende a competir com despesas essenciais do orçamento doméstico.</li>
+              <li data-voice="O uso do Pix favorece transações rápidas e impulsivas para plataformas de apostas."><strong>Velocidade transacional:</strong> o Pix reforça fluidez e imediatismo no envio de recursos para apostas.</li>
+              <li data-voice="Famílias com menor liquidez financeira podem sofrer impacto mais intenso."><strong>Exposição social:</strong> grupos com menor margem financeira ficam mais sensíveis ao desvio de renda.</li>
+              <li data-voice="A centralização visual dos dados ajuda a superar debates baseados apenas em suposição."><strong>Evidência visual:</strong> o dashboard organiza leitura mais clara para banca, pesquisa e análise pública.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="table-card" id="analise" aria-labelledby="titulo-analise">
+          <h2 id="titulo-analise" data-voice="Análise interpretativa do problema.">Análise interpretativa</h2>
+          <p data-voice="A tabela resume os principais eixos da investigação conforme a documentação do projeto.">A leitura abaixo resume os eixos estruturantes do projeto e reforça o papel do dashboard como artefato analítico para visualização correlacional.</p>
+          <table>
+            <caption data-voice="Tabela com eixos centrais da investigação sobre bets, Pix e inadimplência familiar.">Eixos centrais da investigação</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-voice="Coluna eixo de análise.">Eixo</th>
+                <th scope="col" data-voice="Coluna interpretação do eixo.">Interpretação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-voice="Linha fluxo Pix para apostas.">Fluxo Pix para apostas</th>
+                <td data-voice="Leitura do aumento do direcionamento de recursos financeiros para plataformas de bets.">Aumento do direcionamento de recursos financeiros para plataformas de apostas, com maior fluidez transacional.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-voice="Linha inadimplência familiar.">Inadimplência familiar</th>
+                <td data-voice="Observação da relação entre apostas online e dificuldade de manutenção das despesas essenciais.">Relação entre prática recorrente de apostas e dificuldade de manutenção de despesas básicas e quitação de dívidas.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-voice="Linha vulnerabilidade econômica.">Vulnerabilidade econômica</th>
+                <td data-voice="Maior impacto em grupos de baixa e média renda, especialmente com menor margem financeira.">Maior impacto em famílias de baixa e média renda, com menor margem para absorver perdas contínuas.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-voice="Linha evidência estatística.">Evidência estatística</th>
+                <td data-voice="O dashboard transforma dados públicos em leitura visual acessível para apoiar pesquisa e discussão pública.">Centralização de dados públicos em visualizações compreensíveis para apoiar pesquisa, banca e análise social.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="content-card" id="metodologia" aria-labelledby="titulo-metodologia">
+          <h2 id="titulo-metodologia" data-voice="Metodologia e escopo do projeto.">Metodologia e escopo</h2>
+          <p data-voice="O projeto foi concebido como um dashboard web de análise exploratória com ETL, cruzamento de bases heterogêneas e geração de indicadores chave de desempenho.">O sistema foi concebido como um dashboard web de análise exploratória, estruturado sobre tratamento de dados, cruzamento de bases heterogêneas e geração de indicadores-chave de desempenho.</p>
+          <p data-voice="A proposta é transformar dados públicos e anonimizados em evidência visual, permitindo leitura por período, região, objetivo social e variável estatística sem exigir manipulação de planilhas ou código.">A proposta é transformar dados públicos e anonimizados em evidência visual acessível, permitindo leitura por período, região, ODS e variável estatística sem exigir manipulação de planilhas ou código-fonte.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p data-voice="Dashboard analítico sobre o impacto socioeconômico das bets no Brasil.">Dashboard analítico sobre o impacto socioeconômico das bets no Brasil.</p>
+  </footer>
+
+  <script>
+    const statusLeitura = document.getElementById('status-leitura');
+    const aumentarTextoBtn = document.getElementById('aumentar-texto');
+    const diminuirTextoBtn = document.getElementById('diminuir-texto');
+    const contrasteBtn = document.getElementById('alternar-contraste');
+
+    let tamanhoFonte = 100;
+    let ultimoTextoFalado = '';
+    let ultimoElementoLido = null;
+
+    function atualizarStatus(texto) {
+      if (statusLeitura) statusLeitura.textContent = texto;
+    }
+
+    function obterVozPtBR() {
+      const vozes = window.speechSynthesis.getVoices();
+      return vozes.find(v => v.lang === 'pt-BR') || vozes.find(v => v.lang.toLowerCase().startsWith('pt')) || null;
+    }
+
+    function falarTexto(texto) {
+      if (!('speechSynthesis' in window)) {
+        atualizarStatus('Seu navegador não suporta leitura por voz.');
+        return;
+      }
+
+      if (!texto || !texto.trim()) return;
+      const textoLimpo = texto.trim().replace(/\s+/g, ' ');
+      if (textoLimpo === ultimoTextoFalado) return;
+
+      window.speechSynthesis.cancel();
+      const fala = new SpeechSynthesisUtterance(textoLimpo);
+      fala.lang = 'pt-BR';
+      fala.rate = 1;
+      fala.pitch = 1;
+
+      const voz = obterVozPtBR();
+      if (voz) fala.voice = voz;
+
+      ultimoTextoFalado = textoLimpo;
+      window.speechSynthesis.speak(fala);
+      atualizarStatus('Leitura por mouse ativada.');
+    }
+
+    function extrairTextoFalado(elemento) {
+      if (elemento.dataset.voice) return elemento.dataset.voice;
+
+      if (elemento.tagName === 'SELECT') {
+        const label = document.querySelector(`label[for="${elemento.id}"]`);
+        const nome = label ? label.textContent.trim() : 'Campo de seleção';
+        const valor = elemento.options[elemento.selectedIndex]?.text || '';
+        return `${nome}. Opção atual: ${valor}.`;
+      }
+
+      if (elemento.tagName === 'INPUT') {
+        const label = document.querySelector(`label[for="${elemento.id}"]`);
+        return label ? label.textContent.trim() : 'Campo de entrada';
+      }
+
+      return elemento.innerText?.trim() || elemento.textContent?.trim() || '';
+    }
+
+    function lidarLeitura(elemento) {
+      if (ultimoElementoLido === elemento) return;
+      ultimoElementoLido = elemento;
+      falarTexto(extrairTextoFalado(elemento));
+    }
+
+    function aplicarLeituraPorHover() {
+      const elementos = document.querySelectorAll('h1, h2, h3, p, li, a, button, label, select, input, th, td, caption, article, section, .metric, .chart-card, .heat-card, .insight-card, .tag');
+      elementos.forEach((elemento) => {
+        elemento.addEventListener('mouseenter', () => lidarLeitura(elemento));
+        elemento.addEventListener('focus', () => lidarLeitura(elemento));
+      });
+
+      document.addEventListener('mousemove', () => {
+        ultimoElementoLido = null;
+      });
+    }
+
+    aumentarTextoBtn?.addEventListener('click', () => {
+      if (tamanhoFonte < 130) {
+        tamanhoFonte += 10;
+        document.documentElement.style.fontSize = `${tamanhoFonte}%`;
+      }
+    });
+
+    diminuirTextoBtn?.addEventListener('click', () => {
+      if (tamanhoFonte > 90) {
+        tamanhoFonte -= 10;
+        document.documentElement.style.fontSize = `${tamanhoFonte}%`;
+      }
+    });
+
+    contrasteBtn?.addEventListener('click', () => {
+      document.body.classList.toggle('high-contrast');
+    });
+
+    document.addEventListener('keydown', (evento) => {
+      if (evento.altKey && evento.key === '1') {
+        evento.preventDefault();
+        document.getElementById('conteudo-principal')?.scrollIntoView();
+      }
+      if (evento.altKey && evento.key === '2') {
+        evento.preventDefault();
+        document.getElementById('filtros')?.scrollIntoView();
+      }
+      if (evento.altKey && evento.key === '3') {
+        evento.preventDefault();
+        document.getElementById('acessibilidade')?.scrollIntoView();
+      }
+    });
+
+    if ('speechSynthesis' in window && speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = () => obterVozPtBR();
+    }
+
+    aplicarLeituraPorHover();
+  </script>
+</body>
+</html>
