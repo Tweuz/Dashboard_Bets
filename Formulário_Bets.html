@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://127.0.0.1:5500/Formul%C3%A0rio.html -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulários acessíveis sobre o impacto socioeconômico das Bets - Projeto Integrador I">
+    <title>Formulários Acessíveis | Impacto Socioeconômico das Bets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Formulário_Bets_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Formulário_Bets_files/all.min.css">
+    <style>
+        /* Variáveis de Cor e Espaçamento */
+        :root {
+            --bg: #f5f7fb;
+            --surface: rgba(255,255,255,0.92);
+            --surface-2: #ffffff;
+            --surface-3: #edf3f9;
+            --text: #132238;
+            --text-muted: #5b6c80;
+            --primary: #005ea2;
+            --primary-2: #0b7bdc;
+            --accent: #0f9f8f;
+            --success: #027a48;
+            --warning: #b54708;
+            --danger: #b42318;
+            --border: rgba(19,34,56,0.12);
+            --shadow-sm: 0 8px 22px rgba(15, 40, 70, 0.08);
+            --shadow-lg: 0 24px 60px rgba(15, 40, 70, 0.14);
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 24px;
+            --focus: #ffbf47;
+            --font-scale: 1; 
+        }
+
+        /* Tema de Alto Contraste */
+        body.high-contrast {
+            --bg: #000000;
+            --surface: #121212;
+            --surface-2: #1e1e1e;
+            --surface-3: #2c2c2c;
+            --text: #ffffff;
+            --text-muted: #cccccc;
+            --primary: #ffbf47;
+            --primary-2: #ffbf47;
+            --accent: #ffbf47;
+            --border: #ffff00;
+            background: #000 !important;
+        }
+        body.high-contrast header { background: #000; border-bottom: 2px solid #ffbf47; }
+        body.high-contrast button[type="submit"] { background: #000; border: 2px solid #ffbf47; color: #ffbf47; }
+        body.high-contrast section { border-left-color: #ffbf47; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: calc(100% * var(--font-scale)); scroll-behavior: smooth; }
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(11,123,220,0.08), transparent 24%),
+                radial-gradient(circle at top right, rgba(15,159,143,0.08), transparent 22%),
+                linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .skip-link { position: absolute; top: -64px; left: 16px; z-index: 9999; background: #000; color: #fff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; }
+        .skip-link:focus { top: 16px; }
+        div[vw-access-button] { opacity: 0 !important; pointer-events: none !important; position: absolute !important; width: 0 !important; height: 0 !important; overflow: hidden !important; z-index: -1 !important; }
+
+        /* Barra Lateral Flutuante de Acessibilidade */
+        .side-access-bar {
+            position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; background-color: #346083; 
+            border-radius: 8px 0 0 8px; z-index: 1000; box-shadow: -4px 4px 12px rgba(0,0,0,0.15); overflow: hidden;
+        }
+        .side-access-btn {
+            background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 16px; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: background 0.2s;
+        }
+        .side-access-btn:last-child { border-bottom: none; }
+        .side-access-btn:hover, .side-access-btn:focus { background: rgba(255,255,255,0.15); outline: 2px solid var(--focus); outline-offset: -2px; }
+        .side-access-btn svg { width: 28px; height: 28px; fill: white; }
+
+        /* Barra de Acessibilidade Topo */
+        .accessbar { background: #0d2237; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        .accessbar-inner { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 16px; max-width: 1280px; margin: 0 auto; }
+        .access-links { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; }
+        .access-links button { min-height: 40px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
+        .access-links button:hover { background: rgba(255,255,255,0.12); }
+
+        /* Header */
+        header { background: linear-gradient(135deg, #112f4b 0%, #115287 44%, #0b7bdc 100%); color: #fff; padding: 60px 16px; text-align: center; box-shadow: var(--shadow-lg); }
+        header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; line-height: 1.2; }
+
+        /* Container e Seções */
+        .container { width: min(100% - 32px, 1280px); margin: 0 auto; padding: 40px 0; }
+        section { background: var(--surface-2); border-radius: var(--radius-md); padding: 40px; margin-bottom: 32px; box-shadow: var(--shadow-sm); border-left: 6px solid var(--primary-2); }
+        section h2 { color: var(--primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
+        .section-description { color: var(--text-muted); margin-bottom: 28px; font-size: 0.95rem; line-height: 1.7; }
+        fieldset { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px; margin-bottom: 24px; background-color: var(--surface-3); }
+        legend { font-weight: 600; color: var(--primary); padding: 0 8px; font-size: 1.05rem; }
+        .form-group { margin-bottom: 24px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text); font-size: 0.95rem; }
+        .required-indicator { color: var(--danger); font-weight: 700; margin-left: 2px; }
+
+        /* Inputs, Selects, Textareas */
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+            font-size: 1rem; font-family: inherit; background-color: var(--surface-2); color: var(--text); transition: all 0.2s ease;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary-2); box-shadow: 0 0 0 3px rgba(11, 123, 220, 0.1); }
+        textarea { resize: vertical; min-height: 120px; }
+
+        .checkbox-group, .radio-group { display: flex; flex-direction: column; gap: 14px; }
+        .checkbox-item, .radio-item { display: flex; align-items: flex-start; gap: 10px; }
+        input[type="checkbox"], input[type="radio"] { width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--primary-2); flex-shrink: 0; }
+        .checkbox-item label, .radio-item label { margin: 0; font-weight: 500; cursor: pointer; font-size: 0.95rem; }
+
+        /* Botões Formulário */
+        .form-actions { display: flex; justify-content: center; gap: 15px; margin-top: 40px; padding: 20px; background: var(--surface-2); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        button[type="submit"], button[type="reset"] { padding: 16px 32px; border: none; border-radius: var(--radius-sm); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+        button[type="submit"] { background: linear-gradient(135deg, #112f4b 0%, #115287 44%, #0b7bdc 100%); color: white; width: 100%; max-width: 400px; }
+        button[type="submit"]:hover:not(:disabled) { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        button[type="submit"]:disabled { background: #888; cursor: not-allowed; }
+        button[type="reset"] { background: var(--surface-3); color: var(--text); border: 1px solid var(--border); }
+        button[type="reset"]:hover { background: rgba(19,34,56,0.08); }
+
+        .form-message { padding: 14px 16px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 0.95rem; border-left: 4px solid; }
+        .form-message.info { background-color: #e5f1fb; color: #005ea2; border-left-color: #0b7bdc; }
+
+        /* Mensagem de Sucesso (Oculta por padrão) */
+        #mensagem-sucesso {
+            display: none;
+            text-align: center;
+            background: var(--surface-2);
+            border-radius: var(--radius-md);
+            padding: 60px 20px;
+            box-shadow: var(--shadow-lg);
+            border-top: 6px solid var(--success);
+            animation: fadeIn 0.5s ease;
+        }
+        #mensagem-sucesso h2 { color: var(--success); font-size: 2.2rem; margin-bottom: 15px; }
+        #mensagem-sucesso p { font-size: 1.1rem; color: var(--text-muted); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Footer */
+        footer { background: #0d2237; color: white; text-align: center; padding: 32px 16px; margin-top: 60px; font-size: 0.9rem; }
+        :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 10px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            section { padding: 24px; }
+            fieldset { padding: 16px; }
+            .form-actions { flex-direction: column; }
+            button[type="submit"] { max-width: 100%; }
+        }
+    </style>
+<style>[vw] [vw-access-button]{display:none;flex-direction:row-reverse;width:40px;height:40px;cursor:pointer;overflow:hidden;position:absolute;border-radius:8px;transition:all 0.5s ease;right:0;left:auto}[vw] [vw-access-button] img{max-height:40px;transition:all 0.5s ease;border-radius:8px;opacity:1 !important;visibility:visible !important}[vw] [vw-access-button] .vp-access-button{width:40px;height:40px;z-index:1}[vw] [vw-access-button] .vp-pop-up{position:absolute;height:40px;min-width:150px;z-index:0;left:0;right:auto}[vw] [vw-access-button]:hover{width:200px}[vw] [vw-access-button].isLeft{flex-direction:row;left:0;right:auto}[vw] [vw-access-button].isLeft .vp-pop-up{left:auto;right:0}[vw] [vw-access-button].isTopOrBottom:hover{bottom:-20px;top:0;margin-right:-80px}[vw] [vw-access-button].active{display:flex}
+</style><style>[vw].left [vw-plugin-wrapper]{float:left}[vw] [vw-plugin-wrapper]{position:relative;display:none;width:300px;height:100%;float:right;background:white;-webkit-box-shadow:0px 0px 15px rgba(0,0,0,0.2);-moz-box-shadow:0px 0px 15px rgba(0,0,0,0.2);box-shadow:0px 0px 15px rgba(0,0,0,0.2);border-radius:12px;-moz-border-radius:12px;-webkit-border-radius:12px}[vw] [vw-plugin-wrapper].active{display:-webkit-flex;display:flex;flex-direction:column;-webkit-flex-direction:column;height:450px;max-width:100%;min-height:100%}
+</style><style>div[vw]{position:fixed;max-width:95vw;min-height:40px;min-width:40px;z-index:2147483645 !important;display:none;margin:10px !important}div[vw].enabled{display:block}div[vw].active{margin-top:-285px}div[vw].left{left:0;right:initial}
+</style></head>
+<body>
+    <a href="http://127.0.0.1:5500/Formul%C3%A0rio.html#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <nav class="side-access-bar" aria-label="Ferramentas de acessibilidade">
+        <button class="side-access-btn" id="btn-libras" title="Traduzir para Libras" onclick="toggleLibras()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v4h-2zm0 6h2v2h-2z" opacity="0"></path>
+                <path d="M18 10.5V6c0-1.1-.9-2-2-2s-2 .9-2 2v2.12c-.32-.08-.66-.12-1-.12s-.68.04-1 .12V4c0-1.1-.9-2-2-2s-2 .9-2 2v6.62c-.32-.08-.66-.12-1-.12s-.68.04-1 .12V5c0-1.1-.9-2-2-2s-2 .9-2 2v10c0 3.31 2.69 6 6 6s6-2.69 6-6v-4.5z"></path>
+            </svg>
+        </button>
+
+        <button class="side-access-btn" id="btn-voz" title="Ativar Leitor de Voz" onclick="toggleTextToSpeech()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm4.5 10c0 2.49-2.01 4.5-4.5 4.5S7.5 14.49 7.5 12H6c0 3.04 2.28 5.56 5.14 5.95V21h1.72v-3.05C15.72 17.56 18 15.04 18 12h-1.5z"></path>
+                <path d="M18.8 8c.6 1.2.9 2.6.9 4 0 1.4-.3 2.8-.9 4" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M21.5 5.5c1 2 1.5 4.2 1.5 6.5s-.5 4.5-1.5 6.5" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+        </button>
+
+        <button class="side-access-btn" id="btn-contraste-lateral" title="Alto Contraste" onclick="toggleContrast()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+                <path d="M2 2L22 22" stroke="white" stroke-width="3" stroke-linecap="round"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="accessbar" role="region" aria-label="Controles de acessibilidade">
+        <div class="accessbar-inner">
+            <span style="font-weight: 600;">Acessibilidade:</span>
+            <ul class="access-links">
+                <li><button aria-label="Aumentar tamanho do texto" onclick="changeFontSize(0.1)">A+</button></li>
+                <li><button aria-label="Diminuir tamanho do texto" onclick="changeFontSize(-0.1)">A-</button></li>
+                <li><button aria-label="Ativar alto contraste" onclick="toggleContrast()">Alto contraste</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <header role="banner">
+        <h1 title="Impacto Socioeconômico das Bets no Brasil">Impacto Socioeconômico das Bets no Brasil</h1>
+    </header>
+
+    <main id="main-content" role="main">
+        <div class="container">
+            
+            <div id="mensagem-sucesso" tabindex="-1">
+                <h2 title="Muito obrigado pelo seu tempo!">🎉 Muito obrigado!</h2>
+                <p title="Suas respostas foram enviadas com sucesso. A sua contribuição é fundamental para o desenvolvimento do nosso projeto integrador.">
+                    Suas respostas foram enviadas com sucesso.<br>
+                    A sua contribuição é fundamental para o desenvolvimento do nosso projeto integrador.
+                </p>
+            </div>
+
+            <form id="meu-formulario" action="https://formspree.io/f/xyklbwkr" method="POST">
+
+                <section>
+                    <h2 title="Cadastro para Pesquisa de Impacto">Cadastro para Pesquisa de Impacto</h2>
+                    <p class="section-description" title="Participe da nossa pesquisa sobre o impacto das apostas online na economia familiar brasileira. Seus dados serão utilizados apenas para fins acadêmicos e de análise socioeconômica.">
+                        Participe da nossa pesquisa sobre o impacto das apostas online na economia familiar brasileira. 
+                        Seus dados serão utilizados apenas para fins acadêmicos e de análise socioeconômica.
+                    </p>
+
+                    <div class="form-message info">
+                        ℹ️ Todos os campos marcados com <span class="required-indicator">*</span> são obrigatórios para o envio.
+                    </div>
+
+                    <fieldset>
+                        <legend title="Dados Pessoais">Dados Pessoais</legend>
+
+                        <div class="form-group">
+                            <label for="nome-completo" title="Campo obrigatório">Nome Completo <span class="required-indicator">*</span></label>
+                            <input type="text" id="nome-completo" name="nome" required="" aria-required="true" placeholder="Ex: João Silva Santos" title="Coloque seu nome completo aqui">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-pesquisa" title="Campo obrigatório">E-mail <span class="required-indicator">*</span></label>
+                            <input type="email" id="email-pesquisa" name="email" required="" aria-required="true" placeholder="seu-email@exemplo.com" title="Coloque seu e-mail aqui">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regiao" title="Campo obrigatório">Região do Brasil <span class="required-indicator">*</span></label>
+                            <select id="regiao" name="regiao" required="" aria-required="true" title="Selecione a sua região do Brasil">
+                                <option value="">-- Selecione sua região --</option>
+                                <option value="norte">Norte</option>
+                                <option value="nordeste">Nordeste</option>
+                                <option value="centro-oeste">Centro-Oeste</option>
+                                <option value="sudeste">Sudeste</option>
+                                <option value="sul">Sul</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend title="Relação com Apostas Online">Relação com Apostas Online</legend>
+
+                        <div class="form-group">
+                            <label title="Pergunta obrigatória: Você ou alguém da sua família utiliza plataformas de apostas online?">Você ou alguém da sua família utiliza plataformas de apostas online (Bets)? <span class="required-indicator">*</span></label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="bets-sim" name="usa-bets" value="sim" required="" aria-required="true" title="Marque esta opção se você utiliza apostas">
+                                    <label for="bets-sim" title="Sim, eu utilizo">Sim, eu utilizo</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="bets-familia" name="usa-bets" value="familia" title="Marque esta opção se alguém da sua família utiliza">
+                                    <label for="bets-familia" title="Sim, alguém da minha família utiliza">Sim, alguém da minha família utiliza</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="bets-nao" name="usa-bets" value="nao" title="Marque esta opção se ninguém utiliza">
+                                    <label for="bets-nao" title="Não, ninguém da minha família utiliza">Não, ninguém da minha família utiliza</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="impacto-financeiro" title="Pergunta obrigatória">Como você avalia o impacto financeiro das Bets na sua família? <span class="required-indicator">*</span></label>
+                            <select id="impacto-financeiro" name="impacto" required="" aria-required="true" title="Selecione o nível de impacto financeiro">
+                                <option value="">-- Selecione uma opção --</option>
+                                <option value="muito-negativo">Muito negativo - Causa endividamento</option>
+                                <option value="negativo">Negativo - Afeta despesas básicas</option>
+                                <option value="neutro">Neutro - Sem impacto significativo</option>
+                                <option value="positivo">Positivo - Fonte de renda complementar</option>
+                                <option value="nao-sabe">Não sei / Prefiro não responder</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frequencia-apostas" title="Com que frequência as apostas ocorrem?">Com que frequência as apostas ocorrem?</label>
+                            <select id="frequencia-apostas" name="frequencia" title="Selecione a frequência das apostas">
+                                <option value="">-- Selecione uma opção --</option>
+                                <option value="diaria">Diária</option>
+                                <option value="semanal">Semanal</option>
+                                <option value="mensal">Mensal</option>
+                                <option value="ocasional">Ocasional</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend title="Consentimento e Privacidade">Consentimento e Privacidade</legend>
+
+                        <div class="form-group checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consentimento-dados" name="consentimento" required="" aria-required="true" title="Marque para autorizar o uso dos dados (obrigatório)">
+                                <label for="consentimento-dados" title="Autorizo o uso dos meus dados para fins de pesquisa acadêmica sobre o impacto socioeconômico das Bets">
+                                    Autorizo o uso dos meus dados para fins de pesquisa acadêmica sobre o impacto socioeconômico das Bets <span class="required-indicator">*</span>
+                                </label>
+                            </div>
+
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consentimento-email" name="consentimento-email" title="Marque para receber atualizações por e-mail">
+                                <label for="consentimento-email" title="Desejo receber atualizações sobre os resultados da pesquisa por e-mail">
+                                    Desejo receber atualizações sobre os resultados da pesquisa por e-mail
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+
+                <section>
+                    <h2 title="Feedback sobre o Dashboard">Feedback sobre o Dashboard</h2>
+                    <p class="section-description" title="Sua opinião é fundamental para melhorarmos a visualização e interpretação dos dados sobre o impacto das Bets. Compartilhe suas observações e sugestões.">
+                        Sua opinião é fundamental para melhorarmos a visualização e interpretação dos dados sobre o impacto das Bets. Compartilhe suas observações e sugestões.
+                    </p>
+
+                    <fieldset>
+                        <legend title="Avaliação da Plataforma">Avaliação da Plataforma</legend>
+
+                        <div class="form-group">
+                            <label for="nome-feedback">Nome (opcional)</label>
+                            <input type="text" id="nome-feedback" name="nome-feedback-plataforma" placeholder="Seu nome" title="Deixe seu nome aqui se quiser ser identificado na avaliação">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="clareza-dados" title="Pergunta obrigatória">Os dados apresentados estão claros e bem organizados? <span class="required-indicator">*</span></label>
+                            <select id="clareza-dados" name="clareza" required="" aria-required="true" title="Selecione uma avaliação sobre a clareza dos dados">
+                                <option value="">-- Selecione uma opção --</option>
+                                <option value="excelente">Excelente - Muito claro e intuitivo</option>
+                                <option value="bom">Bom - Claro na maioria das partes</option>
+                                <option value="regular">Regular - Poderia melhorar</option>
+                                <option value="ruim">Ruim - Muito confuso</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="utilidade-dados" title="Pergunta obrigatória">Qual é a utilidade dos dados para sua compreensão do tema? <span class="required-indicator">*</span></label>
+                            <select id="utilidade-dados" name="utilidade" required="" aria-required="true" title="Selecione a utilidade dos dados">
+                                <option value="">-- Selecione uma opção --</option>
+                                <option value="muito-util">Muito útil - Mudou minha perspectiva</option>
+                                <option value="util">Útil - Agregou conhecimento</option>
+                                <option value="pouco-util">Pouco útil - Informações que já conhecia</option>
+                                <option value="nao-util">Não útil - Não agregou valor</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comentario" title="Pergunta obrigatória">Comentários e Sugestões <span class="required-indicator">*</span></label>
+                            <textarea id="comentario" name="comentario" required="" aria-required="true" placeholder="Compartilhe suas observações, dúvidas ou sugestões para melhorar o dashboard..." title="Escreva seus comentários e sugestões aqui"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label title="Pergunta obrigatória">Qual aspecto do dashboard você considera mais importante? <span class="required-indicator">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="aspecto-graficos" name="aspecto" value="graficos" required="" aria-required="true" title="Marque esta opção">
+                                    <label for="aspecto-graficos" title="Gráficos e visualizações">Gráficos e visualizações</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="aspecto-dados" name="aspecto" value="dados" title="Marque esta opção">
+                                    <label for="aspecto-dados" title="Precisão dos dados">Precisão dos dados</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="aspecto-filtros" name="aspecto" value="filtros" title="Marque esta opção">
+                                    <label for="aspecto-filtros" title="Filtros e exploração">Filtros e exploração</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="aspecto-acessibilidade" name="aspecto" value="acessibilidade" title="Marque esta opção">
+                                    <label for="aspecto-acessibilidade" title="Acessibilidade e navegação">Acessibilidade e navegação</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+
+                <div class="form-actions">
+                    <button type="submit" id="btn-submit" title="Clique aqui para enviar o formulário completo">Enviar Formulário Completo</button>
+                    <button type="reset" title="Clique aqui para limpar todos os campos preenchidos">Limpar Todos os Dados</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+<footer>
+    <h3>Projeto Integrador I</h3>
+    <p>Desenvolvido por Mateus Onival</p>
+    
+    <a href="https://github.com/Tweuz" target="_blank" rel="noopener noreferrer" class="github-link">
+        <i class="fa-brands fa-github fa-3x"></i>
+    </a>
+</footer>
+
+    <script>
+        // Zoom e Contraste
+        let currentScale = 1;
+        function changeFontSize(amount) {
+            currentScale += amount;
+            if(currentScale < 0.8) currentScale = 0.8;
+            if(currentScale > 1.5) currentScale = 1.5;
+            document.documentElement.style.setProperty('--font-scale', currentScale);
+        }
+
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // Leitor de Voz
+        let speechActive = false;
+        let hoverTimeout;
+
+        function toggleTextToSpeech() {
+            speechActive = !speechActive;
+            const btnVoz = document.getElementById('btn-voz');
+            
+            if (speechActive) {
+                btnVoz.style.background = "#0f9f8f"; 
+                document.body.addEventListener('mouseover', readTextOnHover);
+                document.body.addEventListener('click', readTextOnClick);
+            } else {
+                btnVoz.style.background = "transparent"; 
+                window.speechSynthesis.cancel(); 
+                document.body.removeEventListener('mouseover', readTextOnHover);
+                document.body.removeEventListener('click', readTextOnClick);
+            }
+        }
+
+        function triggerSpeech(text) {
+            if (text && text.trim() !== "") {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'pt-BR'; 
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function getElementTextToRead(el) {
+            if (el.title) return el.title;
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                return el.placeholder || (el.labels && el.labels.length > 0 ? el.labels[0].innerText : "");
+            }
+            if (el.tagName === 'SELECT') {
+                if(el.selectedIndex >= 0) return el.options[el.selectedIndex].text;
+                return el.labels && el.labels.length > 0 ? el.labels[0].innerText : "";
+            }
+            return el.innerText;
+        }
+
+        function readTextOnHover(event) {
+            if(event.target.closest('.side-access-bar') || event.target.closest('.accessbar')) return;
+            clearTimeout(hoverTimeout);
+            hoverTimeout = setTimeout(() => {
+                const textToRead = getElementTextToRead(event.target);
+                triggerSpeech(textToRead);
+            }, 500);
+        }
+
+        function readTextOnClick(event) {
+            if(event.target.closest('.side-access-bar') || event.target.closest('.accessbar')) return;
+            const textToRead = getElementTextToRead(event.target);
+            triggerSpeech(textToRead);
+        }
+
+        function toggleLibras() {
+            const vlibrasBtn = document.querySelector('[vw-access-button]');
+            if (vlibrasBtn) vlibrasBtn.click();
+        }
+
+        // SCRIPT PARA ENVIAR O FORMULÁRIO SEM SAIR DA PÁGINA (AJAX)
+        const form = document.getElementById("meu-formulario");
+        
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Impede o navegador de trocar de página
+
+            const btnSubmit = document.getElementById("btn-submit");
+            const originalText = btnSubmit.innerText;
+            
+            // Muda o botão para mostrar que está enviando
+            btnSubmit.innerText = "Enviando aguarde...";
+            btnSubmit.disabled = true;
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Esconde o formulário
+                    form.style.display = "none";
+                    
+                    // Mostra a mensagem de sucesso bonita
+                    const msgSucesso = document.getElementById("mensagem-sucesso");
+                    msgSucesso.style.display = "block";
+                    msgSucesso.focus(); // Coloca o foco na mensagem para leitores de tela
+                    
+                    // Lê a mensagem automaticamente se a voz estiver ativa
+                    triggerSpeech("Muito obrigado! Suas respostas foram enviadas com sucesso. A sua contribuição é fundamental para o desenvolvimento do nosso projeto integrador.");
+                    
+                    // Rola a página para o topo para a pessoa ver a mensagem
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    alert("Ops! Ocorreu um problema ao enviar o formulário. Tente novamente.");
+                    btnSubmit.innerText = originalText;
+                    btnSubmit.disabled = false;
+                }
+            } catch (error) {
+                alert("Ops! Ocorreu um erro de conexão. Verifique sua internet.");
+                btnSubmit.innerText = originalText;
+                btnSubmit.disabled = false;
+            }
+        });
+    </script>
+
+    <div vw="" class="enabled" style="left: initial; right: 0px; top: 50%; bottom: initial; transform: translateY(calc(-50% - 10px));">
+        <div vw-access-button="" class="active" style=""><img class="vp-access-button" data-src="assets/access_icon.svg" alt="Conteúdo acessível em Libras usando o VLibras Widget com opções dos Avatares Ícaro, Hosana ou Guga." src="./Formulário_Bets_files/access_icon.svg">
+<img class="vp-pop-up" data-src="assets/access_popup.jpg" alt="Conteúdo acessível em Libras usando o VLibras Widget com opções dos Avatares Ícaro, Hosana ou Guga." src="./Formulário_Bets_files/access_popup.jpg">
+</div>
+        <div vw-plugin-wrapper=""><div vp="">
+  <div vp-box=""></div>
+  <div vp-message-box=""></div>
+  <div vp-settings=""></div>
+  <div vp-dictionary=""></div>
+  <div vp-settings-btn=""></div>
+  <div vp-info-screen=""></div>
+  <div vp-suggestion-screen=""></div>
+  <div vp-translator-screen=""></div>
+  <div vp-more-options-screen=""></div>
+  <div vp-emotions-tooltip=""></div>
+  <div vp-main-guide-screen=""></div>
+  <div vp-suggestion-button=""></div>
+  <div vp-rate-box=""></div>
+  <div vp-change-avatar=""></div>
+  <div vp-aux-controls=""></div>
+  <div vp-controls=""></div>
+  <span vp-click-blocker=""></span>
+</div>
+</div>
+    </div>
+    <script src="./Formulário_Bets_files/vlibras-plugin.js.baixados"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
