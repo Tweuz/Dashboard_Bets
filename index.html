@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI-Bets | O Impacto das Apostas</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body class="scrolly-theme">
+
+    <a class="skip-link" href="#main-content" data-voice="Pular para o conteúdo principal.">Pular para o conteúdo principal</a>
+
+    <!-- Acessibilidade Flutuante -->
+    <aside class="acessibilidade-flutuante" aria-label="Menu rápido de acessibilidade">
+        <button id="btn-flutuante-libras" aria-label="Ativar tradutor de Libras" title="Tradutor de Libras">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 20H10C8.54 20 7.21 19.21 6.5 17.96L3.33 12.35C3.12 11.97 3.26 11.48 3.65 11.27C4.03 11.06 4.53 11.2 4.74 11.58L6.87 15.35H7.5V5.5C7.5 5.22 7.72 5 8 5C8.28 5 8.5 5.22 8.5 5.5V11.5H9.5V3.5C9.5 3.22 9.72 3 10 3C10.28 3 10.5 3.22 10.5 3.5V11.5H11.5V4.5C11.5 4.22 11.72 4 12 4C12.28 4 12.5 4.22 12.5 4.5V11.5H13.5V6.5C13.5 6.22 13.72 6 14 6C14.28 6 14.5 6.22 14.5 6.5V14C14.5 17.31 11.81 20 8.5 20H11Z"/>
+                <path d="M19 16C19 18.21 17.21 20 15 20H14V18H15C16.1 18 17 17.1 17 16V10H15L15.63 7.5L18.42 10.3C18.79 10.66 19 11.16 19 11.68V16Z"/>
+            </svg>
+        </button>
+        <button id="btn-flutuante-voz" aria-label="Ativar leitura por voz" title="Leitura por Voz">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5 12C14.5 13.1 13.6 14 12.5 14H10.5V10H12.5C13.6 10 14.5 10.9 14.5 12ZM18.5 12C18.5 14.5 17.1 16.6 15 17.6V15.4C16 14.7 16.5 13.4 16.5 12C16.5 10.6 16 9.3 15 8.6V6.4C17.1 7.4 18.5 9.5 18.5 12ZM21 12C21 16 18.4 19.3 15 20.5V18.3C17.2 17.2 19 14.8 19 12C19 9.2 17.2 6.8 15 5.7V3.5C18.4 4.7 21 8 21 12ZM7.5 10H4.5V14H7.5L11.5 18V6L7.5 10Z"/>
+            </svg>
+        </button>
+        <button id="btn-flutuante-contraste" aria-label="Ativar alto contraste" title="Alto Contraste">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.83 9L15 12.16V12C15 10.34 13.66 9 12 9H11.83ZM12 4.5C7 4.5 2.73 7.61 1 12C2.36 15.4 5.37 18.15 9.17 19.1L6.11 16.04C4.33 15.35 2.8 13.88 2.05 12C3.52 8.23 7.42 5.5 12 5.5C13.41 5.5 14.76 5.8 16 6.32L14.48 7.84C13.7 7.62 12.87 7.5 12 7.5C9.51 7.5 7.5 9.51 7.5 12C7.5 12.87 7.62 13.7 7.84 14.48L5.53 12.17L4.11 13.59L19.41 28.89L20.83 27.47L17.28 23.92C18.54 23.27 19.67 22.42 20.61 21.4C22.25 18.9 23 15.6 23 12C21.27 7.61 17 4.5 12 4.5ZM12 19.5C10.59 19.5 9.24 19.2 8 18.68L9.52 17.16C10.3 17.38 11.13 17.5 12 17.5C14.49 17.5 16.5 15.49 16.5 13C16.5 12.13 16.38 11.3 16.16 10.52L18.47 12.83L19.89 11.41L12 3.52L10.58 4.94L14.72 9.08C13.46 9.73 12.33 10.58 11.39 11.6C9.75 14.1 9 17.4 9 21C10.73 25.39 15 28.5 20 28.5V19.5H12Z"/>
+            </svg>
+        </button>
+    </aside>
+
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="brand" data-voice="PI-BETS. Projeto Integrador.">PI-BETS</div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#sobre-o-projeto" data-voice="O Projeto">O Projeto</a></li>
+                    <li><a href="#dados-interativos" data-voice="Os Dados">Os Dados</a></li>
+                    <li><a href="#analise-profunda" data-voice="Análise">Análise</a></li>
+                </ul>
+            </nav>
+            <div class="access-tools">
+                <button type="button" id="aumentar-texto">A+</button>
+                <button type="button" id="diminuir-texto">A-</button>
+                <span id="status-leitura">Voz: OFF</span>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- 1. TELA INICIAL (Hero) -->
+        <section class="intro-screen">
+            <div class="intro-content">
+                <span class="project-badge reveal-text" data-voice="Projeto Integrador I.">PROJETO INTEGRADOR I</span>
+                <h1 class="main-title reveal-text delay-1" data-voice="O Impacto Socioeconômico das Apostas no Brasil.">
+                    O Impacto Socioeconômico<br>das Bets no Brasil.
+                </h1>
+                <p class="subtitle reveal-text delay-2" data-voice="Uma investigação sobre a relação entre plataformas de apostas online, o uso do Pix e o endividamento das famílias vulneráveis.">
+                    Como a hiperconexão, a velocidade do Pix e a gamificação transformaram o entretenimento em uma epidemia silenciosa de endividamento familiar.
+                </p>
+                <div class="header-cta reveal-text delay-3">
+                    <a href="#sobre-o-projeto" class="primary-btn" data-voice="Entenda o Projeto.">Entenda o Projeto</a>
+                </div>
+            </div>
+            
+            <div class="scroll-prompt reveal-text delay-4">
+                <span data-voice="Rolar para baixo.">Explorar</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- 2. O PROJETO (Conteúdo Rico Fixo) -->
+        <section id="sobre-o-projeto" class="content-section">
+            <div class="container layout-grid">
+                <div class="text-column">
+                    <h2 class="section-title" data-voice="A Gênese do Problema.">A Gênese do Problema</h2>
+                    <p class="text-body" data-voice="O mercado de apostas explodiu no Brasil após 2018.">
+                        O mercado de plataformas de apostas esportivas e cassinos online explodiu no Brasil na última meia década. Inicialmente tratado como lazer, o acesso contínuo 24 horas por dia através do smartphone começou a afetar diretamente o controle financeiro de milhares de brasileiros.
+                    </p>
+                    <p class="text-body" data-voice="Nosso projeto investiga o papel do Pix.">
+                        O projeto <strong>PI-Bets</strong> tem o objetivo de investigar de forma analítica o impacto dessa prática na renda doméstica. A nossa hipótese central é que a combinação da <strong>liquidez imediata do Pix</strong> com interfaces gamificadas remove o atrito racional na hora de gastar, levando as famílias a comprometerem orçamentos de necessidades básicas.
+                    </p>
+                    <div class="ods-tags">
+                        <span class="ods-badge ods-1" data-voice="ODS 1: Erradicação da Pobreza">ODS 1 - Pobreza</span>
+                        <span class="ods-badge ods-3" data-voice="ODS 3: Saúde e Bem-Estar">ODS 3 - Saúde (Ludopatia)</span>
+                    </div>
+                </div>
+                <div class="visual-column">
+                    <div class="info-card glass">
+                        <h3>Objetivos da Investigação</h3>
+                        <ul>
+                            <li><strong>Mapear o Fluxo:</strong> Rastrear o volume de dinheiro migrando do varejo para as plataformas de apostas.</li>
+                            <li><strong>Análise de Risco:</strong> Correlacionar usuários ativos de plataformas com taxas de inadimplência familiar (CNC/Serasa).</li>
+                            <li><strong>Psicologia do Consumo:</strong> Entender como a fricção zero (pagamento instantâneo) afeta a percepção do gasto.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SCROLLYTELLING (Os Dados - Animações) -->
+        <section id="dados-interativos" class="scrolly-section">
+            <!-- Fundo Fixo (Gráficos) -->
+            <div class="sticky-visuals">
+                <div class="visual-state" id="visual-0">
+                    <div class="abstract-orb blue"></div>
+                </div>
+                <div class="visual-state" id="visual-1">
+                    <canvas id="chartVolume" aria-label="Gráfico de volume de transações"></canvas>
+                </div>
+                <div class="visual-state" id="visual-2">
+                    <canvas id="chartPix" aria-label="Gráfico de transações via Pix e Dívidas"></canvas>
+                </div>
+                <div class="visual-state" id="visual-3">
+                    <canvas id="chartRenda" aria-label="Gráfico de impacto regional e renda"></canvas>
+                </div>
+            </div>
+
+            <!-- Passos que Rolam por Cima -->
+            <div class="scroll-steps">
+                
+                <article class="step" data-step="1">
+                    <div class="step-card">
+                        <span class="step-number">Evidência 01</span>
+                        <h2 data-voice="Volume de Transferências.">A Sangria do Orçamento</h2>
+                        <p data-voice="O volume monetário enviado a casas de apostas atinge números alarmantes.">
+                            O Banco Central e órgãos de comércio acenderam um alerta: bilhões de reais que tradicionalmente iriam para o consumo no varejo (supermercados, serviços) estão fluindo mensalmente para empresas de apostas esportivas e cassinos virtuais.
+                        </p>
+                        
+                        <div class="data-placeholder">
+                            <label>INSIRA O VOLUME TRANSAcionado:</label>
+                            <div class="data-value">[R$ XX Bilhões / Mês]</div>
+                            <p class="data-source">Lembrete: Preencher com dado do BCB.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="step" data-step="2">
+                    <div class="step-card">
+                        <span class="step-number">Evidência 02</span>
+                        <h2 data-voice="O Efeito Acelerador do Pix.">O Motor Instantâneo: Pix</h2>
+                        <p data-voice="A remoção de burocracia favorece a perda do controle.">
+                            Antes, para apostar, era necessário boleto ou cartão de crédito, criando uma janela de tempo para o arrependimento. O <strong>Pix</strong> zerou essa barreira. O dinheiro é debitado da conta corrente instantaneamente, fomentando apostas por forte impulso emocional de "recuperar a perda".
+                        </p>
+                        
+                        <div class="data-placeholder">
+                            <label>INSIRA % OU VALOR VIA PIX:</label>
+                            <div class="data-value">[XX% feitas por Pix]</div>
+                            <p class="data-source">Lembrete: Preencher com os relatórios de método de pagamento.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="step" data-step="3">
+                    <div class="step-card">
+                        <span class="step-number">Evidência 03</span>
+                        <h2 data-voice="Inadimplência Familiar.">A Conta Chega: Inadimplência</h2>
+                        <p data-voice="O impacto na vida das famílias mais vulneráveis.">
+                            O resultado matemático de direcionar a renda básica para um sistema desenhado para dar lucro à casa é o endividamento. O Brasil registra uma correlação preocupante entre a prática regular de apostas online e atrasos em contas de utilidade pública (água e luz).
+                        </p>
+                        
+                        <div class="data-placeholder">
+                            <label>INSIRA A TAXA DE INADIMPLÊNCIA:</label>
+                            <div class="data-value">[Aumento de XX% em 12 meses]</div>
+                            <p class="data-source">Lembrete: Extrair cruzamento de dados da CNC/Serasa.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. ANÁLISE PROFUNDA (Mais texto) -->
+        <section id="analise-profunda" class="content-section alternate-bg">
+            <div class="container">
+                <div class="center-text">
+                    <h2 class="section-title">A Gamificação da Pobreza</h2>
+                    <p class="text-body max-width-center">
+                        Além da facilidade transacional, o design dessas plataformas é meticulosamente criado utilizando os princípios de <em>Interface Humano-Computador (IHC)</em> de forma predatória (Dark Patterns). 
+                    </p>
+                </div>
+
+                <div class="analysis-grid">
+                    <div class="analysis-card glass">
+                        <div class="icon">🎮</div>
+                        <h3>Dinheiro Virando Fichas</h3>
+                        <p>O cérebro humano sente dor ao entregar dinheiro vivo. As plataformas convertem seu saldo em créditos virtuais com sons festivos, minimizando a percepção de que a pessoa acabou de gastar dinheiro real que seria usado para a alimentação.</p>
+                    </div>
+                    <div class="analysis-card glass">
+                        <div class="icon">📈</div>
+                        <h3>A Ilusão da "Renda Extra"</h3>
+                        <p>A publicidade massiva, aliada a influenciadores, mudou o enquadramento psicológico da aposta. Ela deixou de ser "lazer ocasional" para ser apresentada como um "investimento" ou "trabalho", manipulando pessoas vulneráveis que buscam sair de crises financeiras.</p>
+                    </div>
+                    <div class="analysis-card glass">
+                        <div class="icon">🧠</div>
+                        <h3>Ludopatia Digital</h3>
+                        <p>A gratificação intermitente gera ciclos viciosos de dopamina idênticos ao uso de drogas químicas. Trata-se de uma questão severa de saúde pública (ODS 3) que afeta milhares de famílias de forma silenciosa, devido ao uso privativo pelo celular.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CONCLUSÃO -->
+        <section class="outro-screen">
+            <div class="outro-content">
+                <h2>Próximos Passos da Pesquisa</h2>
+                <p>Nossa equipe continuará coletando os dados para validar as métricas estruturadas nesta plataforma, promovendo conscientização e discussão baseada em evidências sólidas.</p>
+                
+                <a href="https://github.com/Tweuz" class="github-btn" target="_blank" rel="noopener noreferrer" aria-label="Acessar o Repositório no GitHub">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.84c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.95-2.33 4.81-4.56 5.07.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.22C22 6.58 17.52 2 12 2z"/>
+                    </svg>
+                    <span>Acompanhe o Repositório no GitHub</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Projeto Integrador I • Desenvolvido por Mateus Onival e Equipe.</p>
+    </footer>
+
+    <!-- VLibras Widget -->
+    <div vw class="enabled">
+        <div vw-access-button class="active" style="display: none;"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+</html>
