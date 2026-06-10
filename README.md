@@ -33,6 +33,7 @@ IHC/
 ## Detalhes do Projeto
 
 ### 1. Dashboard Analítico: Impacto das Bets no Brasil
+Link paraacesso: https://dashboardbets.netlify.app/
 Este projeto é uma plataforma web focada no cruzamento de dados sobre apostas online (bets), transações via Pix e indicadores de inadimplência familiar no Brasil.
 
 *   **O que faz:** Oferece uma visão clara sobre como o comportamento de consumo em apostas afeta a economia das famílias vulneráveis.
@@ -40,7 +41,8 @@ Este projeto é uma plataforma web focada no cruzamento de dados sobre apostas o
 *   **Tecnologias:** HTML5, CSS3 e JavaScript Puro (Vanilla JS).
 
 ### 2.  Formulário de Pesquisa
-Link para acesso: https://formulariobets.netlify.app/
+Link para acesso: https://formulariobets.netlify.app/ 
+
 Um sistema de entrada de dados projetado para ser intuitivo e acessível.
 *   **O que faz:** Coleta informações relevantes para o estudo, garantindo que a interface seja amigável para qualquer tipo de usuário.
 
