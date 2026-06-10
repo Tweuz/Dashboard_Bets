@@ -40,6 +40,7 @@ Este projeto é uma plataforma web focada no cruzamento de dados sobre apostas o
 *   **Tecnologias:** HTML5, CSS3 e JavaScript Puro (Vanilla JS).
 
 ### 2.  Formulário de Pesquisa
+Link para acesso: https://formulariobets.netlify.app/
 Um sistema de entrada de dados projetado para ser intuitivo e acessível.
 *   **O que faz:** Coleta informações relevantes para o estudo, garantindo que a interface seja amigável para qualquer tipo de usuário.
 
