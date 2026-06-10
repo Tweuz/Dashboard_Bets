@@ -47,7 +47,7 @@ Um sistema de entrada de dados projetado para ser intuitivo e acessível.
 Documentação acadêmica contendo exercícios práticos, relatórios detalhados (`Relatório Conecta CEUB`) e storyboards que ilustram o fluxo de interação planejado para as soluções.
 
 
-## 🚀 Como Rodar o Projeto Passo a Passo
+## Como Rodar o Projeto Passo a Passo
 
 Como o projeto utiliza tecnologias web padrão (HTML, CSS e JS), você não precisa instalar nenhum servidor pesado ou banco de dados para visualizar o resultado básico. Siga os passos abaixo:
 
