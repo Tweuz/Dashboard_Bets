@@ -2,7 +2,6 @@
 
 Este repositório consolida diversos projetos e materiais desenvolvidos no âmbito da disciplina de Interação Humano-Computador (IHC). O objetivo principal é explorar e aplicar conceitos de usabilidade, acessibilidade e design centrado no usuário, resultando em soluções práticas e análises aprofundadas.
 
----
 
 ## 📂 Estrutura do Repositório
 
@@ -26,37 +25,35 @@ IHC/
 │   ├── Relatório Conecta CEUB.pdf
 │   └── storyboard-Conecta.png
 └── 📖 README.md                  # Documentação do projeto
-```
 
----
 
 ## 🔍 Detalhes do Projeto
 
-### 1. 📊 Dashboard Analítico: Impacto das Bets no Brasil
+### 1.  Dashboard Analítico: Impacto das Bets no Brasil
 Este projeto é uma plataforma web focada no cruzamento de dados sobre apostas online (bets), transações via Pix e indicadores de inadimplência familiar no Brasil.
 
 *   **O que faz:** Oferece uma visão clara sobre como o comportamento de consumo em apostas afeta a economia das famílias vulneráveis.
 *   **Recursos de Acessibilidade:** Desenvolvido seguindo o **eMAG** (Governo Digital), possui suporte para leitura de tela (`window.speechSynthesis`), contraste adequado, navegação por teclado e estrutura preparada para o **VLibras**.
 *   **Tecnologias:** HTML5, CSS3 e JavaScript Puro (Vanilla JS).
 
-### 2. 📝 Formulário de Pesquisa
+### 2. Formulário de Pesquisa
 Um sistema de entrada de dados projetado para ser intuitivo e acessível.
 *   **O que faz:** Coleta informações relevantes para o estudo, garantindo que a interface seja amigável para qualquer tipo de usuário.
 
-### 3. 📚 Desafios das UAs e Menção3
+### 3.  Desafios das UAs e Menção3
 Documentação acadêmica contendo exercícios práticos, relatórios detalhados (`Relatório Conecta CEUB`) e storyboards que ilustram o fluxo de interação planejado para as soluções.
 
----
 
-## 🚀 Como Rodar o Projeto Passo a Passo
+
+##  Como Rodar o Projeto Passo a Passo
 
 Como o projeto utiliza tecnologias web padrão (HTML, CSS e JS), você não precisa instalar nenhum servidor pesado ou banco de dados para visualizar o resultado básico. Siga os passos abaixo:
 
 ### Passo 1: Obter os arquivos
 Você pode baixar o projeto como um arquivo ZIP aqui no GitHub ou clonar via terminal:
-```bash
+bash
 git clone https://github.com/Tweuz/IHC.git
-```
+
 
 ### Passo 2: Executar o Dashboard
 1.  Abra a pasta `Dashboard`.
@@ -74,7 +71,7 @@ git clone https://github.com/Tweuz/IHC.git
 2.  Arquivos `.pdf` e `.png` podem ser abertos diretamente com o visualizador padrão do seu sistema.
 3.  Arquivos `.html` dentro das unidades seguem o mesmo processo de abertura no navegador.
 
----
+
 
 ## 🤖 Uso de IA e Ferramentas de Auxílio
 
@@ -87,16 +84,15 @@ O uso dessas tecnologias foi direcionado para:
 
 Apesar do suporte tecnológico, toda a concepção, tomada de decisão e validação final dos resultados foram realizadas de forma autônoma pelo autor.
 
----
+
 
 ## 🛠️ Tecnologias Utilizadas
 *   **HTML5** (Estrutura)
 *   **CSS3** (Estilo e Responsividade)
 *   **JavaScript Vanilla** (Lógica e Acessibilidade)
 
----
 
-## 👤 Autor
-(Mateus Onival)
+
+
 
 
