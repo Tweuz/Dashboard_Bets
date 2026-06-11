@@ -1,5 +1,21 @@
 # Projeto IHC - Interação Humano-Computador
 
+Quem eu sou
+
+•
+Nome: Mateus Onival Araujo de Moraes
+
+•
+Matrícula: 22402037
+
+•
+Curso: Ciência da Computação
+
+•
+Data: 11 de Junho de 2026
+
+
+
 Este repositório consolida diversos projetos e materiais desenvolvidos no âmbito da disciplina de Interação Humano-Computador (IHC). O objetivo principal é explorar e aplicar conceitos de usabilidade, acessibilidade e design centrado no usuário, resultando em soluções práticas e análises aprofundadas.
 
 ---
