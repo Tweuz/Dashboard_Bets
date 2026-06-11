@@ -43,6 +43,7 @@ IHC/
 │   ├── storyboard-Conecta.png          # Storyboard do projeto
 │   └── (Outros arquivos de suporte)
 └── 📄 README.md                        # Documentação do projeto
+```
 
 
 ## Detalhes do Projeto
