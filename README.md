@@ -11,8 +11,7 @@
  ### Data: 11 de Junho de 2026
 
 
-
-Este repositório consolida diversos projetos e materiais desenvolvidos no âmbito da disciplina de Interação Humano-Computador (IHC). O objetivo principal é explorar e aplicar conceitos de usabilidade, acessibilidade e design centrado no usuário, resultando em soluções práticas e análises aprofundadas.
+Este repositório reúne os projetos e atividades práticos desenvolvidos na disciplina de Interação Humano-Computador (IHC). O conteúdo está estruturado cronologicamente, cobrindo os desafios e entregas das Unidades de Aprendizagem UA1, UA2, UA3 e UA4.
 
 
 ##  Estrutura do Repositório
@@ -21,23 +20,29 @@ Aqui está a organização das pastas e arquivos principais para você se locali
 
 ```text
 IHC/
-├──  Dashboard/                 # Painel analítico principal
-│   ├── Dashboard.html           # Interface do dashboard
-│   ├── dashboard_teste.html     # Versão de testes
-│   └── script.js                # Lógica e interatividade
-├──  Desafios das UAs/          # Unidades de Aprendizagem
-│   ├── UNIDADE_1/               # Desafio 1 (PDF e HTML)
-│   ├── UNIDADE_2/               # Desafio 2 (PDF)
-│   ├── UNIDADE_3/               # Desafio 3
-│   └── UNIDADE_4/               # Desafio 4
-├──  Formulário/                # Seção de coleta de dados
-│   ├── Formulário_Bets.html     # Estrutura do formulário
-│   └── main.js                  # Lógica do formulário
-├──  Menção3/                   # Relatórios e Storyboards
-│   ├── Relatório Conecta CEUB.pdf
-│   └── storyboard-Conecta.png
-└──  README.md                  # Documentação do projeto
-```
+├── 📊 Dashboard/                       # Painel analítico principal
+│   ├── index.html                      # Interface do dashboard
+│   ├── main.js                         # Lógica e interatividade
+│   └── Formulário_Bets_files/          # Arquivos de suporte do dashboard
+├── 📝 Desafios das UAs/                # Unidades de Aprendizagem
+│   ├── UNIDADE_1/                      # Desafio 1 (PDF e HTML)
+│   │   ├── Desafio da UA 1.pdf
+│   │   └── Desafio_UA1.html
+│   ├── UNIDADE_2/                      # Desafio 2 (PDF)
+│   │   └── Desafio da UA 2.pdf
+│   ├── UNIDADE_3/                      # Desafio 3
+│   │   └── Desafio da UA 3.pdf
+│   └── UNIDADE_4/                      # Desafio 4
+│       ├── Desafio da UA 4.pdf
+│       └── desafio.ts
+├── 📋 Formulário/                      # Seção de coleta de dados
+│   ├── Formulário_Bets(2).html         # Estrutura do formulário
+│   └── main.js                         # Lógica do formulário
+├── 📁 Menção3/                         # Relatórios e Storyboards
+│   ├── Menção 3 - IHC.pdf              # Relatório Conecta CEUB.pdf
+│   ├── storyboard-Conecta.png          # Storyboard do projeto
+│   └── (Outros arquivos de suporte)
+└── 📄 README.md                        # Documentação do projeto
 
 ---
 
