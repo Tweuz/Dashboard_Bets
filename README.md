@@ -2,13 +2,13 @@
 
 # Quem eu sou
 
-# Nome: Mateus Onival Araujo de Moraes
+ Nome: Mateus Onival Araujo de Moraes
 
-# Matrícula: 22402037
+ Matrícula: 22402037
 
-# Curso: Ciência da Computação
+ Curso: Ciência da Computação
 
-# Data: 11 de Junho de 2026
+ Data: 11 de Junho de 2026
 
 
 
