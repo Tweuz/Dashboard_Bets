@@ -5,12 +5,12 @@
 - Nome: Mateus Onival Araujo de Moraes
 - Matrícula: 22402037
 - Curso: Ciência da Computação
-- Polo: [Preencher com o Polo]
+- Polo: CEUB ASA NORTE
 - Data de Entrega: 14/06/2026
 
 ## Descrição Geral
 
-Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 3 (UA3)** da disciplina de Interação Humano-Computador (IHC). O foco deste trabalho é o processo de storyboarding e prototipação de interfaces, visando a criação de soluções inclusivas para usuários com deficiência visual.
+Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 3 (UA3)** da disciplina de Interação Humano-Computador (IHC). 
 
 ---
 
@@ -32,7 +32,7 @@ O trabalho envolveu a equipe de design da empresa Desenvolve! para projetar uma 
 Para entender o processo de design e o storyboard desenvolvido, siga os passos abaixo:
 
 #### 1. Ferramentas Necessárias
-Você precisará de um leitor de PDF para o relatório e um visualizador de imagens comum para o storyboard (caso existam arquivos de imagem separados).
+Você precisará de um leitor de PDF para o relatório.
 
 #### 2. Passo a Passo
 1.  **Acesse a pasta:** Abra a pasta `UNIDADE_3` no seu computador.
@@ -46,7 +46,10 @@ Você precisará de um leitor de PDF para o relatório e um visualizador de imag
 
 ## Considerações Finais
 
-A elaboração desta atividade proporcionou uma imersão no processo de design centrado no usuário, com foco em storyboarding e prototipação. A experiência de desenvolver uma solução para Ricardo, um usuário com deficiência visual, reforçou a importância de compreender profundamente as necessidades do público-alvo e de iterar no design para garantir a usabilidade e acessibilidade. A aplicação de técnicas como a criação de personas e protótipos evolutivos mostrou-se essencial para validar ideias e refinar a solução antes do desenvolvimento final.
+
+Pensar nesse aplicativo para o Ricardo me fez ver que o design não é só sobre telas bonitas, é sobre resolver a vida de alguém. Entender as dificuldades dele e planejar os testes antes de qualquer código me mostrou que a acessibilidade tem que vir primeiro, não pode ser um detalhe deixado para o final
+
+
 
 ---
 
