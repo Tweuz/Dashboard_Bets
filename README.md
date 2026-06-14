@@ -5,7 +5,7 @@
 - Nome: Mateus Onival Araujo de Moraes
 - Matrícula: 22402037
 - Curso: Ciência da Computação
-- Polo: [Preencher com o Polo]
+- Polo: CEUB ASA NORTE
 - Data de Entrega: 14/06/2026
 
 ## Descrição Geral
