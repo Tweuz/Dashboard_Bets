@@ -5,12 +5,12 @@
 - Nome: Mateus Onival Araujo de Moraes
 - Matrícula: 22402037
 - Curso: Ciência da Computação
-- Polo: [Preencher com o Polo]
+- Polo: CEUB ASA NORTE
 - Data de Entrega: 14/06/2026
 
 ## Descrição Geral
 
-Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 1 (UA1)** da disciplina de Interação Humano-Computador (IHC). O foco deste trabalho é a aplicação prática de conceitos de acessibilidade e usabilidade em interfaces de sistemas de gestão.
+Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 1 (UA1)** da disciplina de Interação Humano-Computador (IHC).
 
 ---
 
@@ -61,7 +61,7 @@ Para uma melhor experiência, recomendamos o uso do **Visual Studio Code (VS Cod
 
 ## Considerações Finais
 
-A realização desta atividade permitiu compreender como pequenos ajustes na interface, como a escolha correta de cores, rótulos e posicionamento de elementos, impactam diretamente na experiência do usuário e na prevenção de erros operacionais. O foco em IHC mostrou que o design centrado no humano é fundamental para o sucesso de qualquer software, transformando críticas de usuários em soluções técnicas eficientes.
+Com esse trabalho, percebi o quanto pequenos ajustes — como a escolha de cores, nomes de botões e o layout da tela — salvam a experiência do usuário e evitam erros de operação. O foco em IHC mostrou que criar um software de sucesso exige olhar para o lado humano, transformando as dores e reclamações dos usuários em melhorias técnicas reais.
 
 ---
 
