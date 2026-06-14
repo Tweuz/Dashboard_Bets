@@ -5,12 +5,12 @@
 - Nome: Mateus Onival Araujo de Moraes
 - Matrícula: 22402037
 - Curso: Ciência da Computação
-- Polo: [Preencher com o Polo]
+- Polo: CEUB ASA NORTE
 - Data de Entrega: 14/06/2026
 
 ## Descrição Geral
 
-Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 4 (UA4)** da disciplina de Interação Humano-Computador (IHC). O foco deste trabalho é a aplicação técnica utilizando TypeScript para a modelagem de sistemas de vendas, demonstrando conceitos de classes, objetos e lógica de programação.
+Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 4 (UA4)** da disciplina de Interação Humano-Computador (IHC). 
 
 ---
 
@@ -75,7 +75,7 @@ npm install -g typescript
 
 ## Considerações Finais
 
-A realização desta atividade permitiu aplicar conceitos de Programação Orientada a Objetos (POO) utilizando TypeScript, uma linguagem que traz robustez ao desenvolvimento com sua tipagem estática. A modelagem das classes `Produto` e `Venda` mostrou como estruturar dados de forma organizada e eficiente para simular processos de negócio reais, como um carrinho de compras. Além disso, o processo de compilação e execução reforçou o entendimento do fluxo de desenvolvimento em ambientes modernos de software.
+Usar TypeScript para essa atividade foi bem bacana porque a tipagem deixa o código mais seguro. Criar o carrinho de compras com as classes Produto e Venda facilitou o entendimento de como estruturar os dados.
 
 ---
 
