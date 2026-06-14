@@ -5,13 +5,12 @@
 - Nome: Mateus Onival Araujo de Moraes
 - Matrícula: 22402037
 - Curso: Ciência da Computação
-- Polo: [Preencher com o Polo]
+- Polo: CEUB ASA NORTE
 - Data de Entrega: 14/06/2026
 
 ## Descrição Geral
 
-Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 2 (UA2)** da disciplina de Interação Humano-Computador (IHC). O foco deste trabalho é o design de interfaces inclusivas e a aplicação de conceitos de affordance para garantir a acessibilidade de usuários com deficiência visual.
-
+Este documento apresenta a atividade desenvolvida especificamente para a **Unidade de Aprendizagem 2 (UA2)** da disciplina de Interação Humano-Computador (IHC). 
 ---
 
 ## UA2 – Interface, interação e Affordance
@@ -45,7 +44,7 @@ Você precisará de um leitor de PDF instalado em seu computador (como Adobe Acr
 
 ## Considerações Finais
 
-A realização deste desafio permitiu aprofundar o conhecimento sobre a importância da acessibilidade digital. Compreender como softwares de leitura de tela e a navegação estruturada via teclado transformam a interação para pessoas com deficiência visual foi fundamental para perceber que a tecnologia deve ser um meio de inclusão, e não uma barreira. O foco em affordance e interação clara garante que a interface seja funcional e eficiente para todos os perfis de usuários.
+Com esse desafio, entendi que acessibilidade digital não é um detalhe, é uma necessidade. Ver como leitores de tela e a navegação por teclado transformam a experiência de pessoas com deficiência visual me provou que a tecnologia tem que ser sinônimo de inclusão. Criar telas com interações claras e fáceis de entender faz com que o software funcione de verdade para todo mundo, do jeito que deve ser.
 
 ---
 
